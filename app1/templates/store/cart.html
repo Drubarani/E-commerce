@@ -9,11 +9,13 @@
 <body>
 
 {% block content %}
-<h1>CART</h1>
+<center><h1>CART</h1></center>
 
 {% if cart_items %}
     {% for item in cart_items %}
+    <center>
         <div>
+            <img src="{{ item.product.image.url }}" width="200">
             <h3>{{ item.product.name }}</h3>
             <p>Price: ₹{{ item.product.price }}</p>
             <p>Quantity: {{ item.quantity }}</p>
@@ -25,10 +27,11 @@
     {% endfor %}
     <h2>TOTAL : ₹{{ final_amount }}</h2>
 {% else %}
-    <p>Cart is empty!</p>
+    <p>Cart is empty! 🥺</p>
 {% endif %}
 
-<a href="{% url 'product_list' %}">Continue Shopping</a>
+<a href="{% url 'checkout' %}">PLACE ORDER</a>
+</center>
 {% endblock %}
 </body>
 </html>
